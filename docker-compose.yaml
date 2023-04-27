@@ -19,7 +19,7 @@ services:
       - ./credentials:/root/.aws/credentials
     environment:
       SQLALCHEMY_DATABASE_URI: postgresql://administrator:verySecretPassword@database:5432/todo
-      # move the enviroment in there
+      # move the celery enviroment in there
       CELERY_BROKER_URL: sqs://
       CELERY_RESULT_BACKEND: db+postgresql://administrator:verySecretPassword@database:5432/todo
     ports:
@@ -40,6 +40,9 @@ services:
       context: .
       dockerfile: Dockerfile.dev
     restart: always
+    volumes:
+      - ./todo:/app/todo
+      - ./credentials:/root/.aws/credentials
     environment:
       CELERY_BROKER_URL: sqs://
       CELERY_RESULT_BACKEND: db+postgresql://administrator:verySecretPassword@database:5432/todo
