@@ -8,10 +8,6 @@ flask = "*"
 flask-sqlalchemy = "*"
 psycopg2 = "*"
 gunicorn = "*"
-redis = "*"
-celery = {extras = ["sqs"], version = "*"}
-boto3 = "*"
-icalendar = "*"
 
 [dev-packages]
 
