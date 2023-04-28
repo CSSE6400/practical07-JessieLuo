@@ -1,11 +1,3 @@
-provider "docker" { 
-    registry_auth { 
-        address = data.aws_ecr_authorization_token.ecr_token.proxy_endpoint 
-        username = data.aws_ecr_authorization_token.ecr_token.user_name 
-        password = data.aws_ecr_authorization_token.ecr_token.password 
-    } 
-}
-
 resource "aws_ecr_repository" "taskoverflow" { 
     name = "taskoverflow"
 }
